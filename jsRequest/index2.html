@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #e8d9d9;
+        }
+        .parent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .result{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+        }
+        h2{
+            margin: 13px;
+        }
+        #second_num{
+            margin-left: 7px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+    <div class="first_num">
+        <h2>first number</h2>
+        <input type="text" id="first_num" name="first_num">
+    </div>
+    
+    <div class="second_num">
+        <h2>second number</h2>
+        <input type="text" id="second_num" name="second_num">
+    </div>
+    </div>
+    <div class="result">
+    <button id="divide">Divide</button>
+    <h2 id="result">Result: <span id="result_value"></span></h2>
+    <a href="index.html">Go to Index 1</a>
+    </div>
+    
+<script src="func.js"></script>
+<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+body{
+        background: linear-gradient(to right, #4777a7, #939c96);
+        font-family: system-ui;
+}
+h3{
+        margin-top: 0px;
+        margin-bottom: 1px;
+}
+.content{
+        display: flex;
+}
+#users_info{
+            background-color: white;
+            border-radius: 80px;
+            padding-left: 20px;
+            cursor: pointer;
+            margin-top: 60px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+#users_info.selected{
+    border:solid 3px #142a40; 
+}
+.parent1{
+    width:90%; 
+    height: 100%; 
+    margin:0 auto;
+}
+#post_container{
+    width:70%; 
+    height:100%; 
+    margin:0 auto; 
+    margin-top: 20px; 
+    background-color: rgba(121, 116, 116, 0.598);
+}
+#posts{
+    width: 90%;
+    margin: 0 auto;
+}
+#post{
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+
+}

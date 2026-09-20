@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<h2> hallo hana hossam</h2>
+<div id="content">
+    
+</div>
+
+</body>
+    <script>
+
+    function readposts(){
+        let request = new XMLHttpRequest();
+        request.open("GET", "https://jsonplaceholder.typicode.com/todos");
+        request.responseType="json";
+        request.onload =  function(){
+            if(request.status >=200 && request.status < 300){
+            let posts = request.response;
+            for(post of posts){
+                document.getElementById("content").innerHTML += `<h2>${post.title}</h2>`;  
+                console.log(post.title); 
+            }
+        }
+        else{
+            alert("the request is not successful");
+        }
+        }
+        request.send();
+    }
+    
+    function createpost(){
+        let request = new XMLHttpRequest();
+        request.open("post", "https://jsonplaceholder.typicode.com/posts");
+        request.responseType ="json";
+        request.setRequestHeader("Accept" , "application/json");
+        request.setRequestHeader("content-type", "application/json");
+        let bodyParams =`{
+    "userId": 1006,
+    "id": 101,
+    "title": "Hana is very sad",
+    "completed": false
+        }`
+        request.send(bodyParams);
+        request.onload = function(){
+            let response = request.response;
+            console.log(response);
+            console.log("the statues code is " + request.status);
+
+        }
+    }
+
+    function updatepost(){
+    let request = new XMLHttpRequest();
+    request.open("PUT" , "https://jsonplaceholder.typicode.com/posts/1");
+    request.responseType = "json";
+    request.setRequestHeader("Accept" , "application/json");
+    request.setRequestHeader("content-type", "application/json");
+    let bodyParams =`{
+    "id": 1,
+    "title": " hana want to sleep",
+    "completed": true
+}`
+    request.send(bodyParams);
+    request.onload = function(){
+        if(request.status >=200 && request.status < 300){
+        let response = request.response;
+        console.log(response);
+        console.log("the statues code is " + request.status);
+        alert("the post is updated successfully");
+        }
+        else{
+            alert("the request is not successful");
+        }
+    }
+}
+
+    function deletepost(){
+    let request = new XMLHttpRequest();
+    request.open("DELETE" , "https://jsonplaceholder.typicode.com/posts/1");
+    request.responseType = "json";
+    request.setRequestHeader("Accept" , "application/json");
+    request.setRequestHeader("content-type", "application/json");
+    request.send();
+    request.onload = function(){
+        if(request.status >=200 && request.status < 300){
+        let response = request.response;
+        console.log(response);
+        console.log("the statues code is " + request.status);
+        alert("the post is deleted successfully");
+        }
+        else{
+            alert("the request is not successful");
+        }
+    }
+}
+
+////// filter post //////
+    function filterpost(){
+    let request = new XMLHttpRequest();
+    request.open("GET" , "https://jsonplaceholder.typicode.com/posts?userId=1");
+    request.responseType = "json";
+    request.send();
+    request.onload = function(){
+        if(request.status >=200 && request.status < 300){
+        let posts = request.response;
+        for (post of posts){
+            document.getElementById("content").innerHtml += `<h2>${post.title}</h2>`;
+        }
+    }
+        else{
+            alert("the request is not successful");
+        }
+    }
+}
+
+// createpost();
+// readposts(); 
+// updatepost();
+// deletepost();
+filterpost();
+
+    </script>
+</html>  
